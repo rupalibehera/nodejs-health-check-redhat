@@ -5,11 +5,19 @@ osio {
 
   config runtime: 'node'
 
-  ci (branch: 'rupalibehera-patch-1') {
+  ci  {
     echo 'Test if CI works'
-    
     sh 'npm install'
     sh 'npm test'
+    
+    /*def resources = processTemplate(params: [
+          release_version: "1.0.${env.BUILD_NUMBER}"
+    ])
+
+    build resources: resources, commands: """
+          npm install
+          npm test
+    """*/
   }
 
   cd {
