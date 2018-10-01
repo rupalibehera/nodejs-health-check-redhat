@@ -6,6 +6,7 @@ osio {
   config runtime: 'node'
 
   ci (branch: 'rupalibehera-patch-1') {
+    echo 'Test if CI works'
     
     sh 'npm install'
     sh 'npm test'
