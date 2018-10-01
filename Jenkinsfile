@@ -7,13 +7,17 @@ osio {
 
   ci {
     
-    def resources = processTemplate(params: [
-     release_version: "1.0.${env.BUILD_NUMBER}"
+   def resources = processTemplate(params: [
+          release_version: "1.0.${env.BUILD_NUMBER}"
     ])
-     build resources: resources, commands: """
+
+    build resources: resources, commands: """
           npm install
           npm test
     """
+
+    deploy resources: resources, env: 'stage'
+
 
   }
 
