@@ -6,6 +6,7 @@ osio {
   config runtime: 'node'
 
   ci {
+    
     echo "Test CI changes"
     sh 'npm install'
     sh 'npm test'
