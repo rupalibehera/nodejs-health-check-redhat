@@ -6,7 +6,7 @@ osio {
   config runtime: 'node'
 
   ci {
-
+    echo "Test CI branching from same fork"
     def app = processTemplate(params: [
           release_version: "1.0.${env.BUILD_NUMBER}"
     ])
