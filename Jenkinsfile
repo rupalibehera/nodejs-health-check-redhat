@@ -5,10 +5,9 @@ osio {
 
   config runtime: 'node'
 
-  ci  {
-    echo 'Test if CI works'
+  ci {
     
-    def resources = processTemplate(params: [
+   def resources = processTemplate(params: [
           release_version: "1.0.${env.BUILD_NUMBER}"
     ])
 
@@ -16,6 +15,10 @@ osio {
           npm install
           npm test
     """
+
+    deploy resources: resources, env: 'stage'
+
+
   }
 
   cd {
@@ -29,7 +32,7 @@ osio {
           npm test
     """
 
-    deploy resources: resources, env: 'stage'
+    //deploy resources: resources, env: 'stage'
 
   }
 }
