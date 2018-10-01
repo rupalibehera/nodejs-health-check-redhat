@@ -5,15 +5,10 @@ osio {
 
   config runtime: 'node'
 
-  ci {
-
-    def app = processTemplate(params: [
-          release_version: "1.0.${env.BUILD_NUMBER}"
-    ])
+  ci (branch: 'rupalibehera-patch-1') {
+    
     sh 'npm install'
     sh 'npm test'
-    build resources: app
-
   }
 
   cd {
