@@ -9,6 +9,7 @@ osio {
     echo "Test CI changes"
     sh 'npm install'
     sh 'npm test'
+
   }
 
   cd {
