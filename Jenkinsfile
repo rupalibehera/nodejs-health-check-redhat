@@ -6,7 +6,7 @@ osio {
   config runtime: 'node'
 
   ci  {
-    echo 'Test if CI works'
+    echo 'Test if CI works!'
     
     def resources = processTemplate(params: [
           release_version: "1.0.${env.BUILD_NUMBER}"
