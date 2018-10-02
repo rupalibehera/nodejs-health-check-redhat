@@ -1,4 +1,3 @@
-#!/usr/bin/groovy
 @Library('github.com/fabric8io/osio-pipeline@master')_
 
 osio {
@@ -7,11 +6,11 @@ osio {
 
   ci {
 
-    def app = processTemplate(params: [
+    def resources = processTemplate(params: [
           release_version: "1.0.${env.BUILD_NUMBER}"
     ])
 
-    build resources: app
+    build resources: resources
 
   }
 
@@ -22,6 +21,10 @@ osio {
     ])
 
     build resources: resources
-    
+
+    deploy resources: resources, env: 'stage'
+
+    deploy resources: resources, env: 'run', approval: 'manual'
+
   }
 }
