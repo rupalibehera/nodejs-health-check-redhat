@@ -14,6 +14,7 @@ osio {
     ])
 
     build resources: app
+
   }
 
   cd {
@@ -22,9 +23,7 @@ osio {
           release_version: "1.0.${env.BUILD_NUMBER}"
     ])
 
-    build resources: resources, commands: """
-          npm install
-          npm test
-    """
+    build resources: resources
+    
   }
 }
