@@ -7,15 +7,13 @@ osio {
 
   ci {
     echo "Test CI branching from same fork"
+    sh 'npm install'
+    sh 'npm test'
     def app = processTemplate(params: [
           release_version: "1.0.${env.BUILD_NUMBER}"
     ])
 
-    build resources: app, commands: """
-          npm install
-          npm test
-    """
-
+    build resources: app
   }
 
   cd {
