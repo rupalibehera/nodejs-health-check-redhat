@@ -12,10 +12,7 @@ osio {
           release_version: "1.0.${env.BUILD_NUMBER}"
     ])
    
-    build resources: app, commands: """
-          npm install
-          npm test
-    """
+    build resources: app
 
   }
 
@@ -26,10 +23,8 @@ osio {
           release_version: "1.0.${env.BUILD_NUMBER}"
     ])
 
-    build resources: resources, commands: """
-          npm install
-          npm test
-    """
+    build resources: resources
+    
     deploy resources: resources, env: 'stage'
 
     deploy resources: resources, env: 'run', approval: 'manual'
