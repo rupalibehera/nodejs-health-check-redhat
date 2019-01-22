@@ -12,7 +12,8 @@ osio {
           release_version: "1.0.${env.BUILD_NUMBER}"
     ])
    
-    build resources: app
+    
+    runTest commands: 'npm test'
 
   }
 
