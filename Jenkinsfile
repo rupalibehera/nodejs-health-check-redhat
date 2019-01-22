@@ -13,7 +13,7 @@ osio {
     ])
    
     
-    runTest commands: 'npm test'
+    runTest commands: 'npm install && npm test'
 
   }
 
